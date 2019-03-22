@@ -13,61 +13,101 @@ namespace Scrabble
     {
         static void Main(string[] args)
         {
-            JObject json = JObject.Parse(File.ReadAllText(@"words.json"));
-            string json1 = json.ToString(Newtonsoft.Json.Formatting.None);
 
 
-            int Counter = 1;
-            for(int i=0;i<34;i++)
-            {
-                
-            }
-            
-            ShiftWords(Counter);
-            
-
-            foreach (string part in json["words"])
-            {
-                
-            }
 
 
+
+
+
+            WordDictionary wordDic = new WordDictionary();
+            Scrabbleboard scrabbleBoard = new Scrabbleboard();
 
             Console.WriteLine("Finish");
+
             Console.ReadLine();
         }
+    }
 
-        public static void ShiftWords(int Count)
+    class WordDictionary
+    {
+        public List<List<string>> dic = new List<List<string>>();
+
+        public WordDictionary()
         {
-            String FileName = "words1.json";
-            FileName = "words" + Count + ".json";
-            String aktLine = "";
-            String Temp = "";
+            Console.WriteLine("Im called");
 
-            using (StreamReader sr = new StreamReader("words.json", Encoding.Default, true))
+            JObject json = JObject.Parse(File.ReadAllText(@"words.json"));
+            JObject currentJson = json;
+            string[] dictonary;
+
+            int longest_word = 0;
+
+
+            foreach (string word in json["words"])
             {
-                using (StreamWriter sw = new StreamWriter(FileName))
+                if (longest_word < word.Length)
                 {
-                    while ((aktLine = sr.ReadLine()) != null)
-                    {
-                        aktLine = sr.ReadLine();
-                        if (aktLine == "" || aktLine == null)
-                        { }
-                        else
-                        {
-                            Temp = aktLine.Substring(0 + Count, 1);
+                    longest_word = word.Length;
+                }
 
-                            aktLine = aktLine.Substring(1 + Count, aktLine.Length - Count - 1);
-                            aktLine = aktLine + Temp;
-                            sw.WriteLine(aktLine);
-                        }
+            }
+
+            for (int i = 1; i < longest_word; i++)
+            {
+                List<string> currentShift = new List<string>();
+
+                foreach (string word in json["words"])
+                {
+                    if (word.Length > i)
+                    {
+                        string wordWithDelemiter = word.Insert(i, ",");
+                        string[] arr = wordWithDelemiter.Split(',');
+                        string newWord = arr[1] + "," + arr[0];
+
+                        currentShift.Add(newWord);
+                    }
+
+                }
+
+
+                dic.Add(currentShift);
+            }
+        }
+
+
+        public void search(string[] pos)
+        {
+
+        }
+    }
+
+    class Scrabbleboard
+    {
+        private Array board;
+
+        public Scrabbleboard()
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                for (int k = 0; k < 15; k++)
+                {
+                    if ((i % 7 == 0 && k % 7 == 0) && !(i == 7 && k == 7))
+                    {
+                        Console.WriteLine("Im dribbel Word");
+                    }
+
+                    if ((i % 4 == 2 && k % 4 == 2) && !(1 == 0))
+                    {
+                        Console.WriteLine("Im dribbel Letter");
                     }
                 }
             }
         }
+
     }
 
-    class words
+    class Scrabblefield
     {
 
     }
