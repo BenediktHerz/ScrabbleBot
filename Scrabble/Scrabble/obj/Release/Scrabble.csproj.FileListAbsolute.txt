@@ -1,0 +1,10 @@
+C:\Users\Sentinel\source\repos\Scrabble\Scrabble\bin\Release\Scrabble.exe.config
+C:\Users\Sentinel\source\repos\Scrabble\Scrabble\bin\Release\Scrabble.exe
+C:\Users\Sentinel\source\repos\Scrabble\Scrabble\bin\Release\Scrabble.pdb
+C:\Users\Sentinel\source\repos\Scrabble\Scrabble\bin\Release\Newtonsoft.Json.dll
+C:\Users\Sentinel\source\repos\Scrabble\Scrabble\bin\Release\Newtonsoft.Json.pdb
+C:\Users\Sentinel\source\repos\Scrabble\Scrabble\bin\Release\Newtonsoft.Json.xml
+C:\Users\Sentinel\source\repos\Scrabble\Scrabble\obj\Release\Scrabble.csproj.CoreCompileInputs.cache
+C:\Users\Sentinel\source\repos\Scrabble\Scrabble\obj\Release\Scrabble.csproj.CopyComplete
+C:\Users\Sentinel\source\repos\Scrabble\Scrabble\obj\Release\Scrabble.exe
+C:\Users\Sentinel\source\repos\Scrabble\Scrabble\obj\Release\Scrabble.pdb
